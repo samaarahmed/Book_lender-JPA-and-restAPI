@@ -1,11 +1,20 @@
 package se.lexicon.samaar.booklender.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Objects;
 
+@Entity
 public class Loan {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long loanID;
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.REFRESH},fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_user_Id")
     private LibraryUser loanTaker;
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.REFRESH},fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_book_Id")
     private Book book;
     private LocalDate loanDate;
     private boolean concluded;
@@ -41,7 +50,8 @@ public class Loan {
         this.book = book;
     }
 
-    public boolean isOverdue(){
+    public boolean isOverdue( Book maxLoanDays){
+
 
         return true;
     }
