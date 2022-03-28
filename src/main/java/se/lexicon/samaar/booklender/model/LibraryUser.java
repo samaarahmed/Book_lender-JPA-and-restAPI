@@ -17,6 +17,13 @@ public class LibraryUser {
     public LibraryUser() {
     }
 
+    public LibraryUser(int userID, LocalDate regDate, String name, String email) {
+        this.userID = userID;
+        this.regDate = regDate;
+        this.name = name;
+        this.email = email;
+    }
+
     public LibraryUser(LocalDate regDate, String name, String email) {
         this.regDate = regDate;
         this.name = name;

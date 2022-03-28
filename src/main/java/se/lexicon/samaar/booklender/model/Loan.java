@@ -22,6 +22,14 @@ public class Loan {
     public Loan() {
     }
 
+    public Loan(long loanID, LibraryUser loanTaker, Book book, LocalDate loanDate, boolean concluded) {
+        this.loanID = loanID;
+        this.loanTaker = loanTaker;
+        this.book = book;
+        this.loanDate = loanDate;
+        this.concluded = concluded;
+    }
+
     public Loan(LibraryUser loanTaker, Book book, LocalDate loanDate, boolean concluded) {
         this.loanTaker = loanTaker;
         this.book = book;
@@ -50,11 +58,6 @@ public class Loan {
         this.book = book;
     }
 
-    public boolean isOverdue( Book maxLoanDays){
-
-
-        return true;
-    }
 
     public LocalDate getLoanDate() {
         return loanDate;
@@ -67,11 +70,6 @@ public class Loan {
 
     public void setConcluded(boolean concluded) {
         this.concluded = concluded;
-    }
-
-    public boolean extendLoan(int days){
-
-        return true;
     }
 
     @Override

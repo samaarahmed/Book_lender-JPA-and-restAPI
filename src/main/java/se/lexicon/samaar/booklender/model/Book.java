@@ -23,6 +23,17 @@ public class Book {
     public Book() {
     }
 
+    public Book(int bookId, String title, boolean available, boolean reserved,
+                int maxLoanDays, BigDecimal finePerDay, String description) {
+        this.bookId = bookId;
+        this.title = title;
+        this.available = available;
+        this.reserved = reserved;
+        this.maxLoanDays = maxLoanDays;
+        this.finePerDay = finePerDay;
+        this.description = description;
+    }
+
     public Book(String title, int maxLoanDays, BigDecimal finePerDay, String description) {
         this.title = title;
         this.maxLoanDays = maxLoanDays;
