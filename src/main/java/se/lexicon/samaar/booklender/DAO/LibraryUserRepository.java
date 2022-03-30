@@ -6,4 +6,5 @@ import se.lexicon.samaar.booklender.model.LibraryUser;
 public interface LibraryUserRepository extends JpaRepository<LibraryUser,Integer> {
 
     LibraryUser findLibraryUserByEmail (String email);
+    LibraryUser findByUserID ( int userId);
 }

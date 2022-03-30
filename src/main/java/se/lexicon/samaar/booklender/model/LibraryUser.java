@@ -1,5 +1,7 @@
 package se.lexicon.samaar.booklender.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -9,6 +11,7 @@ public class LibraryUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userID;
+   @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate regDate;
     private String name;
     @Column(unique = true)
