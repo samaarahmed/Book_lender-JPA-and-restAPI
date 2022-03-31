@@ -19,25 +19,31 @@ public class LibraryUserController {
         this.libraryUserService = libraryUserService;
     }
 
-    @GetMapping(value = "libraryuserdto/{userId}")
+    @GetMapping("api/v1/libraryuser/{userId}")
     public ResponseEntity<LibraryUserDTO> findById(@PathVariable("userId") int userId) {
         return ResponseEntity.ok(libraryUserService.findById(userId));
 
     }
-    @GetMapping(value = "libraryuserdto//{email}")
+    @GetMapping("api/v1/libraryuser//{email}")
     public ResponseEntity<LibraryUserDTO> findById(@PathVariable("email") String email) {
      return ResponseEntity.ok(libraryUserService.findByEmail(email));
    }
 
-        @PostMapping(value = "/libraryuserdto")
+        @PostMapping("api/v1/libraryuser")
     public ResponseEntity<LibraryUserDTO> create(@RequestBody LibraryUserDTO libraryUserDTO) {
 
         return ResponseEntity.ok(libraryUserDTO = libraryUserService.create(libraryUserDTO));
 
     }
-    @GetMapping(value = "libraryuserdto")
+    @GetMapping("api/v1/libraryuser")
     public ResponseEntity<List<LibraryUserDTO>> findAll() {
         return ResponseEntity.ok(libraryUserService.findAll());
+
+    }
+    @PutMapping("api/v1/libraryuser/{userId}")
+    public ResponseEntity<LibraryUserDTO> update(@PathVariable("userId") int userId,@RequestBody LibraryUserDTO libraryUserDTO) {
+
+        return ResponseEntity.ok(libraryUserService.update(libraryUserDTO));
 
     }
 }

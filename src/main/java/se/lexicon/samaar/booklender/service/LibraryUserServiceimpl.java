@@ -83,7 +83,24 @@ public class LibraryUserServiceimpl implements LibraryUserService {
 
     @Override
     public LibraryUserDTO update(LibraryUserDTO libraryUserDTO) {
-        return null;
+        {
+
+
+            Optional<LibraryUser> libraryUseropt = libraryUserRepository.findById(libraryUserDTO.getUserID());
+
+            if (libraryUseropt.isPresent()) {
+                LibraryUser libraryUser = new LibraryUser();
+                BeanUtils.copyProperties(libraryUserDTO, libraryUser);
+                libraryUser = libraryUserRepository.save(libraryUser);
+                BeanUtils.copyProperties(libraryUser,libraryUserDTO);
+            }
+            else {
+                //Throw an exception
+            }
+
+
+            return libraryUserDTO;
+        }
     }
 
     @Override
