@@ -89,10 +89,10 @@ public class LibraryUserServiceimpl implements LibraryUserService {
             Optional<LibraryUser> libraryUseropt = libraryUserRepository.findById(libraryUserDTO.getUserID());
 
             if (libraryUseropt.isPresent()) {
-                LibraryUser libraryUser = new LibraryUser();
-                BeanUtils.copyProperties(libraryUserDTO, libraryUser);
-                libraryUser = libraryUserRepository.save(libraryUser);
-                BeanUtils.copyProperties(libraryUser,libraryUserDTO);
+                libraryUseropt.get().setRegDate(libraryUserDTO.getRegDate());
+                libraryUseropt.get().setName(libraryUserDTO.getName());
+                libraryUseropt.get().setEmail(libraryUserDTO.getEmail());
+                BeanUtils.copyProperties(libraryUseropt,libraryUserDTO);
             }
             else {
                 //Throw an exception

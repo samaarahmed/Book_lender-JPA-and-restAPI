@@ -43,7 +43,9 @@ public class LibraryUser {
         return regDate;
     }
 
-
+    public void setRegDate(LocalDate regDate) {
+        this.regDate = regDate;
+    }
 
     public String getName() {
         return name;

@@ -7,9 +7,7 @@ import java.time.LocalDate;
 public class LibraryUserDTO {
 
     private int userID;
-
    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-
     private LocalDate regDate;
     private String name;
     private String email;

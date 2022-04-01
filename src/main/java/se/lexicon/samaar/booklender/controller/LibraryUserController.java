@@ -31,8 +31,8 @@ public class LibraryUserController {
 
         @PostMapping("api/v1/libraryuser")
     public ResponseEntity<LibraryUserDTO> create(@RequestBody LibraryUserDTO libraryUserDTO) {
-
-        return ResponseEntity.ok(libraryUserDTO = libraryUserService.create(libraryUserDTO));
+            libraryUserDTO = libraryUserService.create(libraryUserDTO);
+        return ResponseEntity.ok(libraryUserDTO);
 
     }
     @GetMapping("api/v1/libraryuser")
